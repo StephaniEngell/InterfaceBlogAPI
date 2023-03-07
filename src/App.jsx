@@ -14,7 +14,7 @@ const App = () => {
   const fetchData = async () => {
     await fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
-      .then((data) => setUsers(data.reverse()))
+      .then((data) => setUsers(data.slice(0,3)))
       .catch((err) => {
         console.log(err);
       });
