@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Post from "./components/post";
 import AddPost from "./components/post/AddPost";
+import EdditPost from "./components/Post/EdditPost";
 import { Container } from "./styles";
 
 
@@ -70,23 +71,15 @@ const App = () => {
   const onPut = async ( name, email) => {
     await fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
       method: 'PUT',
-      body: JSON.stringify({
-        id: 1,
-        title: 'foo',
-        body: 'bar',
-        userId: 1,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
+      body: JSON.stringify(updatedItem),
+      headers: { 'Content-Type': 'application/json' }
     })
-      .then((data) => {
-        setUsers((users) => [...users, data]);
-      })
-      .catch((err) => {
-        console.log(err);
+      .then(response => response.json())
+      .then(data => {
+        setItems(items.map(item => item.id === updatedItem.id ? data : item));
+        setShowEditModal(false);
       });
-  }
+  };
 
   useEffect(() => {
  
