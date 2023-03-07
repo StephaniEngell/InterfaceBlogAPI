@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Post from "./components/post";
 import AddPost from "./components/post/AddPost";
+import { Container } from "./styles";
 
 
 const App = () => {
@@ -91,12 +92,11 @@ const App = () => {
  
   },[])
 
-  console.log(users);
   return (
     <div className="App">
       <br />
       <AddPost onAdd={onAdd} />
-      <div>
+      <Container>
         {users.map((user) => (
           <Post
             id={user.id}
@@ -106,7 +106,7 @@ const App = () => {
             onDelete={onDelete}
           />
         ))}
-      </div>
+      </Container>
     </div>
   );
 };

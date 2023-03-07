@@ -1,16 +1,14 @@
-
 import React from "react";
-import { Button, Container } from "../styles";
-import { ContentForm, Input, TextForm, TextButton } from "./styles";
+import { Button } from "../styles";
+import { ContentForm, Input, TextForm, TextButton, Container } from "./styles";
 
 const AddPost = ({ onAdd }) => {
-
-const handleOnSubmit = (e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
-    onAdd(e.target.titulo.value,e.target.subtitulo.value);
+    onAdd(e.target.titulo.value, e.target.subtitulo.value);
     e.target.titulo.value = "";
     e.target.subtitulo.value = "";
-}
+  };
 
   return (
     <Container>
@@ -19,7 +17,7 @@ const handleOnSubmit = (e) => {
         <Input placeholder="Título" name="titulo" />
         <Input placeholder="Subtítulo" name="subtitulo" />
         <Button onSubmit={handleOnSubmit}>
-            <TextButton>Add</TextButton>
+          <TextButton>Add</TextButton>
         </Button>
       </ContentForm>
     </Container>
