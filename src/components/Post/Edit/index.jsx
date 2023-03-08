@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ModalWrapper, ModalContent, Form, Input, Button } from "./styles";
 
-function EditModal(props) {
+function Edit(props) {
   const [formState, setFormState] = useState(props.item);
 
   const handleChange = (event) => {
@@ -45,4 +45,4 @@ function EditModal(props) {
   );
 }
 
-export default EditModal;
+export default Edit;

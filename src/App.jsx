@@ -2,9 +2,9 @@ import { Button, Input } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Post from "./components/Post";
-import AddPost from "./components/Post/AddPost";
-import { ContentForm } from "./components/Post/AddPost/styles";
-import EdditPost from "./components/Post/EdditPost";
+import Add from "./components/Post/Add";
+import { ContentForm } from "./components/Post/Add/styles";
+import Edit from "./components/Post/Edit";
 import { TextButton } from "./components/Post/styles";
 import { Container } from "./styles";
 
@@ -42,20 +42,34 @@ const App = () => {
       });
   };
 
-  const handleSelectToEdit = async (id) => {
-    await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setPost({
-          id: data.id,
-          title: data.title,
-          body: data.body,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const handleSelectToEdit = async (id) => {
+  //   await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
+  //     method: 'PUT',
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setPost({...res});
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+const handleSelectToEdit = async (id) => {
+  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+  method: 'PUT',
+  body: JSON.stringify({
+    id: id,
+    title: post.title,
+    body: post.body,
+    userId: 1,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+}
 
   const handleSubmit = async (e) => {
     // TODO: Add post to JSONPlaceholder API
@@ -85,18 +99,6 @@ const App = () => {
         console.log(err);
       });
 
-    // await fetch(`https://jsonplaceholder.typicode.com/posts/1`, {
-    //   method: "PUT",
-    //   body: JSON.stringify(updatedItem),
-    //   headers: { "Content-Type": "application/json" },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setItems(
-    //       items.map((item) => (item.id === updatedItem.id ? data : item))
-    //     );
-    //     setShowEditModal(false);
-    //   });
   };
 
   useEffect(() => {
@@ -152,6 +154,7 @@ const App = () => {
           />
         ))}
       </Container>
+      
     </div>
   );
 };

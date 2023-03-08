@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../styles";
 import { ContentForm, Input, TextForm, TextButton, Container } from "./styles";
 
-const AddPost = ({ onAdd }) => {
+const Add = ({ onAdd }) => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
     onAdd(e.target.titulo.value, e.target.subtitulo.value);
@@ -24,4 +24,4 @@ const AddPost = ({ onAdd }) => {
   );
 };
 
-export default AddPost;
+export default Add;

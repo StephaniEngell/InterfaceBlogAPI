@@ -12,6 +12,7 @@ import {
   ButtonCreatePost,
 } from "./styles";
 
+
 function Post({ title, body, id, onDelete, onEdit }) {
   return (
     <Content>
@@ -32,6 +33,7 @@ function Post({ title, body, id, onDelete, onEdit }) {
           style={{ border: "none", background: "#fff" }}
         >
           <FaPen size={20} color="#878787" />
+         
         </button>
         <button
           id="delete"
