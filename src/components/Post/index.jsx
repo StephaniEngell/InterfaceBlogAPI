@@ -1,22 +1,18 @@
+// Third-party imports
 import React from "react";
-
+import { FaPen, FaPlusCircle, FaTrash } from "react-icons/fa";
+// Local imports
 import {
   HeaderPost,
   ContentBody,
-  Button,
-  TextButton,
-  TextContainer,
+  Heading,
   Text,
   FooterPost,
   Content,
   ButtonCreatePost,
-  ContentImage,
-  ContentIcons,
 } from "./styles";
 
-import { FaPen, FaPlusCircle, FaTrash } from "react-icons/fa";
-
-function Post({ name, body, id, onDelete, image }) {
+function Post({ title, body, id, onDelete, onEdit }) {
   return (
     <Content>
       <HeaderPost>
@@ -26,25 +22,24 @@ function Post({ name, body, id, onDelete, image }) {
       </HeaderPost>
 
       <ContentBody>
-        <Button onClick={() => onDelete(id)}>
-          <TextButton>Sharing</TextButton>
-        </Button>
-        <ContentImage src={image} />
-        <TextContainer>
-          <Text>{name}</Text>
-        </TextContainer>
-        <TextContainer>
-          <Text>{body}</Text>
-        </TextContainer>
+        <Heading>{title}</Heading>
+        <Text>{body}</Text>
       </ContentBody>
 
       <FooterPost>
-        <ContentIcons>
+        <button
+          onClick={() => onEdit(id)}
+          style={{ border: "none", background: "#fff" }}
+        >
           <FaPen size={20} color="#878787" />
-        </ContentIcons>
-        <ContentIcons>
+        </button>
+        <button
+          id="delete"
+          onClick={() => onDelete(id)}
+          style={{ border: "none", background: "#fff" }}
+        >
           <FaTrash size={20} color="#878787" />
-        </ContentIcons>
+        </button>
       </FooterPost>
     </Content>
   );

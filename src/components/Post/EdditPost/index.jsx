@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ModalWrapper, ModalContent, Form, Input, Button } from './styles'
+import React, { useState } from "react";
+import { ModalWrapper, ModalContent, Form, Input, Button } from "./styles";
 
 function EditModal(props) {
   const [formState, setFormState] = useState(props.item);
@@ -7,7 +7,7 @@ function EditModal(props) {
   const handleChange = (event) => {
     setFormState({
       ...formState,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -22,11 +22,20 @@ function EditModal(props) {
         <Form onSubmit={handleSubmit}>
           <label>
             Nome:
-            <Input type="text" name="name" value={formState.name} onChange={handleChange} />
+            <Input
+              type="text"
+              name="name"
+              value={formState.name}
+              onChange={handleChange}
+            />
           </label>
           <label>
             Descrição:
-            <textarea name="description" value={formState.description} onChange={handleChange}></textarea>
+            <textarea
+              name="description"
+              value={formState.description}
+              onChange={handleChange}
+            ></textarea>
           </label>
           <Button type="submit">Salvar</Button>
           <Button onClick={props.onClose}>Cancelar</Button>
