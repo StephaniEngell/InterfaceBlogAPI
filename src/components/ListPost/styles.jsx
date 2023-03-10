@@ -18,15 +18,6 @@ export const HeaderPost = styled.div`
   padding: 10px 20px;
 `;
 
-export const ButtonCreatePost = styled.button`
-  background-color: transparent;
-  border: none;
-
-  :hover {
-    cursor: pointer;
-  }
-`;
-
 export const ContentBody = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,25 +26,6 @@ export const ContentBody = styled.div`
   padding: 20px;
   background-color: #9d9c9c;
   height: 370px;
-`;
-
-export const Button = styled.button`
-  background-color: transparent;
-  border: 1px solid #fff;
-  border-radius: 10px;
-  padding: 5px;
-  width: 100px;
-  margin-bottom: 10px;
-
-  :hover {
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-`;
-
-export const TextButton = styled.h2`
-  font-size: 12px;
-  color: #fff;
 `;
 
 export const Heading = styled.h2`
@@ -75,19 +47,4 @@ export const FooterPost = styled.div`
   display: flex;
   gap: 20px;
   padding: 10px 20px;
-`;
-
-export const ContentImage = styled.img`
-  width: 300px;
-  height: 200px;
-  border-radius: 30px;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
-  margin: 20px 0;
-  border: none;
-`;
-
-export const ContentIcons = styled.div`
-  :hover {
-    cursor: pointer;
-  }
 `;
